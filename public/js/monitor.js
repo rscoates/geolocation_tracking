@@ -41,9 +41,7 @@ function init () {
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(lat, lng),
       icon: {
-        path: google.maps.SymbolPath.CIRCLE,
-        scale: 8,
-        strokeColor: '#FF0000'
+        path: 'https://alex-christmas-tracker.herokuapp.com/byte.png',
       },
       draggable: false,
       map: map
