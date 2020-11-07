@@ -22,7 +22,7 @@ const bclient = new bbt.Connector({
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', function (req, res, next) {
-  res.redirect('/track.html')
+  res.redirect('/monitor.html')
 })
 
 app.get( '/auth', function (req, res, next) {
