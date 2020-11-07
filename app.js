@@ -8,6 +8,8 @@ const bbt = require('beebotte')
 
 const app = express()
 
+const PORT = process.env.PORT || 8080
+
 // Replace by your ACCESS and SECRET Keys
 const bclient = new bbt.Connector({
   apiKey: 'YOUR_API_KEY',
@@ -42,7 +44,7 @@ app.get( '/auth', function (req, res, next) {
   return res.send(retval)
 })
 
-const server = app.listen(8080, function () {
+const server = app.listen(PORT, function () {
 
   const host = server.address().address
   const port = server.address().port
