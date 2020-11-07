@@ -25,7 +25,7 @@ function init () {
     var longitude = position.coords.longitude
 
     console.log('publishing position: ', latitude, longitude)
-    bbt.publish({
+    bbt.write({
       channel: 'AlexTracker',
       resource: 'alextracker'
     }, {
