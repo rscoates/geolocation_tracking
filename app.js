@@ -9,11 +9,13 @@ const bbt = require('beebotte')
 const app = express()
 
 const PORT = process.env.PORT || 8080
+const apiKey = process.env.API_KEY || 'YOUR_API_KEY'
+const secretKey = process.env.SECRET_KEY || 'YOUR_SECRET_KEY'
 
 // Replace by your ACCESS and SECRET Keys
 const bclient = new bbt.Connector({
-  apiKey: 'YOUR_API_KEY',
-  secretKey: 'YOUR_SECRET_KEY',
+  apiKey,
+  secretKey,
 })
 
 // configure Express
