@@ -8,13 +8,13 @@ function init () {
 
   var tracker = null
 
-  var bbt = new BBT('abc123545678', {
+  var bbt = new BBT('MNolpo28Q3I1PbVpAozZxY8E', {
     auth_endpoint: '/auth'
   })
 
   bbt.subscribe({
-    channel: 'private-mychannel', // replace this by your channel
-    resource: 'location', // replace this by your channel GPS resource
+    channel: 'AlexTracker', // replace this by your channel
+    resource: 'alextracker', // replace this by your channel GPS resource
     read: false, // No need to subscribe to data we are publishing
     write: true // We need to publish data
   }, function(message) {})
@@ -26,8 +26,8 @@ function init () {
 
     console.log('publishing position: ', latitude, longitude)
     bbt.publish({
-      channel: 'private-mychannel',
-      resource: 'location'
+      channel: 'AlexTracker',
+      resource: 'alextracker'
     }, {
       'latitude': latitude,
       'longitude': longitude

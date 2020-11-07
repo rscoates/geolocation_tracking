@@ -3,13 +3,13 @@ function init () {
   var map = null
   var marker = null
 
-  var bbt = new BBT('YOUR_API_KEY', {
+  var bbt = new BBT('MNolpo28Q3I1PbVpAozZxY8E', {
     auth_endpoint: '/auth'
   })
 
   bbt.subscribe({
-    channel: 'private-mychannel',
-    resource: 'location',
+    channel: 'AlexTracker',
+    resource: 'alextracker',
     read: true,
     write: false
   }, function(msg) {
