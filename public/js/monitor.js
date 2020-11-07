@@ -13,8 +13,9 @@ function init () {
     channel: 'AlexTracker',
     resource: 'alextracker',
   }, function(err, msg) {
-    console.log('received historic position: ', msg.data.latitude, msg.data.longitude)
-    displayCarLocation(msg.data.latitude, msg.data.longitude)
+    var {latitude, longitude} = msg[0].data
+    console.log('received position: ', latitude, longitude)
+    displayCarLocation(latitude, longitude)
   })
 
   bbt.subscribe({
@@ -23,9 +24,8 @@ function init () {
     read: true,
     write: false
   }, function(msg) {
-    var {latitude, longitude} = msg[0].data
-    console.log('received position: ', latitude, longitude)
-    displayCarLocation(latitude, longitude)
+    console.log('received position: ', msg.data.latitude, msg.data.longitude)
+    displayCarLocation(msg.data.latitude, msg.data.longitude)
   })
 
   function initializeMap (position) {
