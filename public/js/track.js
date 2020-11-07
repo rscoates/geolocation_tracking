@@ -8,7 +8,7 @@ function init () {
 
   var tracker = null
 
-  var bbt = new BBT('YOUR_API_KEY', {
+  var bbt = new BBT('abc123545678', {
     auth_endpoint: '/auth'
   })
 
