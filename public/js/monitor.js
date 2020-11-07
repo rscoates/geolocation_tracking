@@ -27,6 +27,8 @@ function init () {
     map = new google.maps.Map(document.getElementById('map'), options)
   }
 
+  initializeMap(new google.maps.LatLng(lat, lng))
+
   function displayCarLocation(lat, lng) {
 
     if (!map) {
