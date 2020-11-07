@@ -28,7 +28,27 @@ function init () {
     map = new google.maps.Map(document.getElementById('map'), options)
   }
 
-  initializeMap(new google.maps.LatLng('51.5070659', '-0.0986613'))
+  function httpGetAsync(theUrl, callback)
+  {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+      if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous
+    xmlHttp.send(null);
+  }
+
+  httpGetAsync('/lastlocation', (text) => {
+    try {
+      var [lat, long] = JSON.parse(text) || ['51.5070659', '-0.0986613']
+    }
+    catch(e){
+      console.error(e)
+      var [lat, long] = ['51.5070659', '-0.0986613']
+    }
+    initializeMap(new google.maps.LatLng(lat, long))
+  })
 
   function displayCarLocation(lat, lng) {
 

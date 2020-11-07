@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 8080
 const apiKey = process.env.API_KEY || 'YOUR_API_KEY'
 const secretKey = process.env.SECRET_KEY || 'YOUR_SECRET_KEY'
 
+let lastLat = '51.5070659'
+let lastLong = '-0.0986613'
+
 // Replace by your ACCESS and SECRET Keys
 const bclient = new bbt.Connector({
   apiKey,
@@ -23,6 +26,18 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.get('/', function (req, res, next) {
   res.redirect('/monitor.html')
+})
+
+bclient.read({
+  channel: 'AlexTracker',
+  resource: 'alextracker',
+  limit: 5/* Retrieves last 5 records . default is 750 */
+}, function(err, res) {
+  [lastLat, lastLong] = res[0] || [lastLat, lastLong]
+})
+
+app.get('/lastlocation', (req, res) => {
+  res.send(`[${lastLat}, ${lastLong}]`)
 })
 
 app.get( '/auth', function (req, res, next) {
