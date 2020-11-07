@@ -2,6 +2,7 @@ function init () {
 
   var map = null
   var marker = null
+  var setlat = null
 
   var bbt = new BBT('MNolpo28Q3I1PbVpAozZxY8E', {
     auth_endpoint: '/auth'
@@ -27,11 +28,12 @@ function init () {
     map = new google.maps.Map(document.getElementById('map'), options)
   }
 
-  initializeMap(new google.maps.LatLng(lat, lng))
+  initializeMap(new google.maps.LatLng('51.5070659', '-0.0986613'))
 
   function displayCarLocation(lat, lng) {
 
-    if (!map) {
+    if (!map || !setlat) {
+      setlat = true
       initializeMap(new google.maps.LatLng(lat, lng))
     }
 
