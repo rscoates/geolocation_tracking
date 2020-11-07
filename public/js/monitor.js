@@ -13,7 +13,7 @@ function init () {
     channel: 'AlexTracker',
     resource: 'alextracker',
   }, function(err, msg) {
-    var {latitude, longitude} = msg[0].data
+    var {latitude, longitude} = JSON.parse(msg[0].data)
     console.log('received position: ', latitude, longitude)
     displayCarLocation(latitude, longitude)
   })
