@@ -12,7 +12,7 @@ function init () {
     owner: 'rscoates',
     channel: 'AlexTracker',
     resource: 'alextracker',
-  }, function(msg) {
+  }, function(err, msg) {
     console.log('received historic position: ', msg.data.latitude, msg.data.longitude)
     displayCarLocation(msg.data.latitude, msg.data.longitude)
   })
