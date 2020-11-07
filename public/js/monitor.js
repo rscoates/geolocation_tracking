@@ -9,6 +9,7 @@ function init () {
   })
 
   bbt.read({
+    owner: 'rscoates',
     channel: 'AlexTracker',
     resource: 'alextracker',
   }, function(msg) {
