@@ -52,7 +52,7 @@ function init () {
     // set the marker to the new position
     marker = new google.maps.Marker({
       position: new google.maps.LatLng(lat, lng),
-      icon: 'https://alex-christmas-tracker.herokuapp.com/byte.png',
+      icon: 'https://alex-christmas-tracker.herokuapp.com/goodbyte.svg',
       draggable: false,
       map: map
     })
