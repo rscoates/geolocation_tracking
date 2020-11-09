@@ -56,5 +56,6 @@ function init () {
       draggable: false,
       map: map
     })
+    map.setCenter({lat, lng})
   }
 }
