@@ -58,6 +58,15 @@ function init () {
   }
 
   function stopTracking () {
+    let lastLat = '51.5070659'
+    let lastLong = '-0.0986613'
+    bbt.write({
+      channel: 'AlexTracker',
+      resource: 'alextracker'
+    }, {
+      'latitude': lastLat,
+      'longitude': lastLong
+    })
     if (tracker != null) {
       navigator.geolocation.clearWatch(tracker)
       tracker = null
