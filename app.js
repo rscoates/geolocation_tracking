@@ -12,8 +12,8 @@ const PORT = process.env.PORT || 8080
 const apiKey = process.env.API_KEY || 'YOUR_API_KEY'
 const secretKey = process.env.SECRET_KEY || 'YOUR_SECRET_KEY'
 
-let lastLat = '51.506916'
-let lastLong = '-0.09729'
+let lastLat = '51.5070659'
+let lastLong = '-0.0986613'
 
 // Replace by your ACCESS and SECRET Keys
 const bclient = new bbt.Connector({

@@ -32,6 +32,13 @@ function init () {
       'latitude': latitude,
       'longitude': longitude
     })
+    bbt.publish({
+      channel: 'AlexTracker',
+      resource: 'alextracker'
+    }, {
+      'latitude': latitude,
+      'longitude': longitude
+    })
   }
 
   function error (error) {
